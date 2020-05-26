@@ -1,6 +1,6 @@
 node {
    def mvnHome
-   def branch     = "env.BRANCH_NAME"
+   def branch     = "$BRANCH_NAME".toString()
    def configpath = "./helm/charts/sparkpredict/config"
    stage('Preparation') { // for display purposes
       echo "1"
