@@ -25,7 +25,6 @@ node {
    }
    stage('Results') {
       echo "3"
-      echo "env.BRANCH_NAME".toString()"
    }
    stage('Results') {
       echo "3"
