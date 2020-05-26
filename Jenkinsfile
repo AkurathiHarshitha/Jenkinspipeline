@@ -1,6 +1,6 @@
 node {
    def mvnHome
-   def branch     = ${BRANCH_NAME}
+   def branch     = "env.BRANCH_NAME"
    def configpath = "./helm/charts/sparkpredict/config"
    stage('Preparation') { // for display purposes
       echo "1"
@@ -9,17 +9,15 @@ node {
    stage('Build') {
       // Run the maven build
       echo "2"
-      sh 'echo "Hello World"'
-      sh 'echo "Hello World"'
-      sh '$configpath'
+      sh 'echo "$branch"'
       
       parallel(
       a: {
-        echo "This is branch a"
         echo "$branch"
       },
       b: {
         echo "This is branch b"
+        echo "$branch"
       }
     )
    }
