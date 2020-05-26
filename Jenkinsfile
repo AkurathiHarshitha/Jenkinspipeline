@@ -1,5 +1,6 @@
 node {
    def mvnHome
+   def branch     = "env.BRANCH_NAME".toString()
    def configpath = "./helm/charts/sparkpredict/config"
    stage('Preparation') { // for display purposes
       echo "1"
@@ -15,11 +16,16 @@ node {
       parallel(
       a: {
         echo "This is branch a"
+        echo "$branch"
       },
       b: {
         echo "This is branch b"
       }
     )
+   }
+   stage('Results') {
+      echo "3"
+      echo "env.BRANCH_NAME".toString()"
    }
    stage('Results') {
       echo "3"
